@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascent Clothing - Premium Minimalist Apparel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000;
+            --secondary: #f5f5f5;
+            --accent: #d4af37;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 2rem 8rem;
+            min-height: 80vh;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #f0f0f0 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Video Background Styling */
+        .product-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.9;
+        }
+
+        .product-card {
+            position: relative;
+        }
+
+        .product-card-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 5;
+        }
+
+        /* Newsletter */
+        .newsletter-banner {
+            background: var(--primary);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .newsletter-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #999;
+        }
+
+        .newsletter-form button {
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Products Section */
+        .products {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .products h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: var(--secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.02);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .product-specs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec {
+            flex: 1;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+        }
+
+        .spec strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            max-width: 900px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item h3:hover {
+            color: var(--accent);
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.closed p {
+            max-height: 0;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            margin-top: 6rem;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Ascent</div>
+            <nav>
+                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Wardrobe</h1>
+            <p>Minimalist design meets premium quality. Each piece is crafted for those who value simplicity and sophistication.</p>
+            <div class="cta-buttons">
+                <a href="#shop" class="btn btn-primary">Shop Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-light);">Free shipping on all orders</p>
+        </div>
+        <div class="hero-image">
+            <video autoplay muted loop playsinline>
+                <source src="https://ascentclothing.shop/videos/black-tee-back.mp4" type="video/mp4">
+                <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/d457ccf6-294e-4bee-8454-0a0ed3341bf8/Ascent_White_Tee.jpeg" alt="Ascent Collection">
+            </video>
+        </div>
+    </section>
+
+    <!-- Newsletter Banner -->
+    <section class="newsletter-banner">
+        <h2>Stay in the Loop</h2>
+        <p>Get exclusive drops and updates delivered to your inbox</p>
+        <form class="newsletter-form" onsubmit="handleBeehiivSubscribe(event)">
+            <input type="email" placeholder="your@email.com" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">We'll never share your email or spam you</p>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="shop">
+        <h2>The Collection</h2>
+        <div class="product-grid">
+            <!-- Black Tee -->
+            <div class="product-card">
+                <div class="product-images">
+                    <div class="product-image">
+                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/9a0e7517-6506-4147-802b-7e2c707b11d3/Ascent_Black_Tee.jpeg" alt="Ascent Black Tee Front">
+                    </div>
+                    <div class="product-image">
+                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/288503b8-7a26-4721-9654-0e2e08f5ef99/Ascent_Black_T__Back_.jpeg" alt="Ascent Black Tee Back">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Ascent Black Tee</h3>
+                    <p>Unisex, premium comfort</p>
+                    <div class="product-specs">
+                        <div class="spec"><strong>Material</strong> 100% Organic Cotton</div>
+                        <div class="spec"><strong>Fit</strong> Relaxed & Tailored</div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://buy.stripe.com/8x228qdDX37gbMicYbd7q0E" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- White Tee -->
+            <div class="product-card">
+                <div class="product-images">
+                    <div class="product-image">
+                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/3dc65be5-a55b-449c-bc56-496f4fdb5f3f/Ascent_White_Tee.jpeg" alt="Ascent White Tee Front">
+                    </div>
+                    <div class="product-image">
+                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/7441e458-3d54-4ffd-879a-3e11da46d607/Ascent_White_Tee__Back_.jpeg" alt="Ascent White Tee Back">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3>Ascent White Tee</h3>
+                    <p>Unisex, premium comfort</p>
+                    <div class="product-specs">
+                        <div class="spec"><strong>Material</strong> 100% Organic Cotton</div>
+                        <div class="spec"><strong>Fit</strong> Relaxed & Tailored</div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="https://buy.stripe.com/aFaeVcgQ937g17Egand7q0F" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>How often will I receive emails? <span>+</span></h3>
+            <p>We send out a fresh edition every week to month or so.</p>
+        </div>
+        <div class="faq-item">
+            <h3>When will I receive my shipment? <span>+</span></h3>
+            <p>We aim to get this to you within 2-3 weeks. We're selling on pre-order, so in the worst case scenario, it could take longer, but we'll stay in touch with you and get it to you as fast as possible. Some orders arrive within 10 business days or less.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What material are your shirts and how do I wash them? <span>+</span></h3>
+            <p><strong>Composition:</strong> 100% Cotton<br><strong>Care instructions:</strong> Wash in cold water, tumble dry, and iron if necessary<br><strong>Closure type:</strong> Pull On</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is your refund policy? <span>+</span></h3>
+            <p>You have 48 hours upon receiving your order to request exchange of clothing size. You also may request a refund, but you must cover shipping cost. Email <strong>ascentclothingwear@gmail.com</strong> or text <strong>+1 520 409 1631</strong> for any of these requests. (Shipping Returns Approximately $10 or less within USA)</p>
+        </div>
+        <div class="faq-item">
+            <h3>What is your shirt sizing chart? <span>+</span></h3>
+            <p><strong>US Regular Sizing (Inches - Chest Measurements):</strong><br>
+            Small: 34 - 36<br>
+            Medium: 38 - 40<br>
+            Large: 42 - 44<br>
+            X-Large: 46 - 48<br>
+            2X-Large: 50 - 52<br>
+            3X-Large: 54 - 56<br><br>
+            <strong>Larger Sizing:</strong> Must contact for custom sizing request. Email <strong>ascentclothingwear@gmail.com</strong> or text <strong>+1 520 409 1631</strong> for any of these requests.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I share this newsletter with colleagues and friends? <span>+</span></h3>
+            <p>Absolutely. In fact, meaningful conversations sparked by these insights can lead to breakthroughs. Forward it, discuss it, and build on it.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What if I have feedback or topic suggestions? <span>+</span></h3>
+            <p>Just hit "reply" to any issue. We're eager to improve and ready to dig into areas that truly resonate—your feedback can shape our future coverage.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Shop</h4>
+                <a href="#shop">All Products</a>
+                <a href="#">New Arrivals</a>
+                <a href="#">Sale</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#about">About</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Size Guide</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ascent Clothing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.add('closed');
+            item.querySelector('h3').addEventListener('click', () => {
+                item.classList.toggle('closed');
+                const span = item.querySelector('h3 span');
+                span.textContent = item.classList.contains('closed') ? '+' : '−';
+            });
+        });
+
+        // Beehiiv Subscribe
+        function handleBeehiivSubscribe(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            // Redirect to beehiiv subscribe page
+            window.location.href = 'https://ascentclothing.beehiiv.com/subscribe?email=' + encodeURIComponent(email);
+        }
+    </script>
+</body>
+</html>

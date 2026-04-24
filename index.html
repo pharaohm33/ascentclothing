@@ -218,6 +218,76 @@
             z-index: 5;
         }
 
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 8rem auto;
+            padding: 0 2rem;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-text p:first-child {
+            font-size: 1.1rem;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .highlight-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .highlight-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
         /* Newsletter */
         .newsletter-banner {
             background: var(--primary);
@@ -497,6 +567,11 @@
                 font-size: 2.5rem;
             }
 
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .product-grid {
                 grid-template-columns: 1fr;
             }
@@ -567,7 +642,47 @@
         <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">We'll never share your email or spam you</p>
     </section>
 
-    <!-- Products -->
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Ascent</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Ascent Clothing is an Arizona-based apparel company dedicated to creating pieces that transcend fleeting trends. We believe in the philosophy that less is more—every item we produce is intentional, limited, and built to last.</p>
+                    
+                    <h3>Limited & Exclusive</h3>
+                    <p>We don't do mass production. Each collection is carefully curated with limited quantities, ensuring exclusivity and scarcity. When you own an Ascent piece, you're part of a select community of individuals who value quality over quantity.</p>
+                    
+                    <h3>Uncompromising Quality</h3>
+                    <p>Every shirt is crafted from premium 100% organic cotton, selected for its durability and comfort. Our production partners share our commitment to fair labor practices and minimal environmental impact. We stand behind our work—your Ascent piece is an investment.</p>
+                    
+                    <h3>Built to Endure</h3>
+                    <p>Fast fashion fades. Ascent pieces are designed to become wardrobe staples—the shirts you reach for season after season. Proper care will only enhance their character and longevity. We provide detailed care instructions because we want your pieces to last a lifetime.</p>
+                </div>
+                
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>Arizona Made</h4>
+                        <p>Rooted in the desert. Built with intention.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Limited Releases</h4>
+                        <p>Exclusive collections. Never mass-produced.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Organic Materials</h4>
+                        <p>100% cotton. Ethically sourced and crafted.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Lifetime Durability</h4>
+                        <p>Designed to become your favorite piece.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
     <section class="products" id="shop">
         <h2>The Collection</h2>
         <div class="product-grid">
@@ -622,23 +737,23 @@
     <!-- FAQ -->
     <section class="faq" id="faq">
         <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-emails">
             <h3>How often will I receive emails? <span>+</span></h3>
             <p>We send out a fresh edition every week to month or so.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-shipping">
             <h3>When will I receive my shipment? <span>+</span></h3>
             <p>We aim to get this to you within 2-3 weeks. We're selling on pre-order, so in the worst case scenario, it could take longer, but we'll stay in touch with you and get it to you as fast as possible. Some orders arrive within 10 business days or less.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-material">
             <h3>What material are your shirts and how do I wash them? <span>+</span></h3>
             <p><strong>Composition:</strong> 100% Cotton<br><strong>Care instructions:</strong> Wash in cold water, tumble dry, and iron if necessary<br><strong>Closure type:</strong> Pull On</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-returns">
             <h3>What is your refund policy? <span>+</span></h3>
             <p>You have 48 hours upon receiving your order to request exchange of clothing size. You also may request a refund, but you must cover shipping cost. Email <strong>ascentclothingwear@gmail.com</strong> or text <strong>+1 520 409 1631</strong> for any of these requests. (Shipping Returns Approximately $10 or less within USA)</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-sizing">
             <h3>What is your shirt sizing chart? <span>+</span></h3>
             <p><strong>US Regular Sizing (Inches - Chest Measurements):</strong><br>
             Small: 34 - 36<br>
@@ -649,15 +764,18 @@
             3X-Large: 54 - 56<br><br>
             <strong>Larger Sizing:</strong> Must contact for custom sizing request. Email <strong>ascentclothingwear@gmail.com</strong> or text <strong>+1 520 409 1631</strong> for any of these requests.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-share">
             <h3>Can I share this newsletter with colleagues and friends? <span>+</span></h3>
             <p>Absolutely. In fact, meaningful conversations sparked by these insights can lead to breakthroughs. Forward it, discuss it, and build on it.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item" id="faq-feedback">
             <h3>What if I have feedback or topic suggestions? <span>+</span></h3>
             <p>Just hit "reply" to any issue. We're eager to improve and ready to dig into areas that truly resonate—your feedback can shape our future coverage.</p>
         </div>
-    </section>
+        <div class="faq-item" id="faq-contact">
+            <h3>How can I contact Ascent? <span>+</span></h3>
+            <p><strong>Email:</strong> ascentclothingwear@gmail.com<br><strong>Phone:</strong> +1 520 409 1631<br><br>We're here to help with any questions about sizing, orders, returns, or anything else. Reach out anytime!</p>
+        </div>
 
     <!-- Footer -->
     <footer>
@@ -665,21 +783,21 @@
             <div class="footer-section">
                 <h4>Shop</h4>
                 <a href="#shop">All Products</a>
-                <a href="#">New Arrivals</a>
-                <a href="#">Sale</a>
+                <a href="#faq-emails">New Arrivals</a>
+                <a href="#faq-share">Sale</a>
             </div>
             <div class="footer-section">
                 <h4>Company</h4>
                 <a href="#about">About</a>
-                <a href="#">Sustainability</a>
-                <a href="#">Contact</a>
+                <a href="#faq-material">Sustainability</a>
+                <a href="#faq-contact">Contact</a>
             </div>
             <div class="footer-section">
                 <h4>Support</h4>
-                <a href="#">Size Guide</a>
-                <a href="#">Shipping</a>
-                <a href="#">Returns</a>
-                <a href="#">Privacy</a>
+                <a href="#faq-sizing">Size Guide</a>
+                <a href="#faq-shipping">Shipping</a>
+                <a href="#faq-returns">Returns</a>
+                <a href="#faq-feedback">Privacy</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -695,6 +813,36 @@
                 item.classList.toggle('closed');
                 const span = item.querySelector('h3 span');
                 span.textContent = item.classList.contains('closed') ? '+' : '−';
+            });
+        });
+
+        // Auto-open FAQ item if linked from footer
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash.startsWith('#faq-')) {
+                const faqItem = document.querySelector(hash);
+                if (faqItem) {
+                    faqItem.classList.remove('closed');
+                    faqItem.querySelector('h3 span').textContent = '−';
+                    // Scroll to it smoothly
+                    setTimeout(() => {
+                        faqItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        });
+
+        // Also handle when user clicks footer link
+        document.querySelectorAll('a[href^="#faq-"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const hash = link.getAttribute('href');
+                const faqItem = document.querySelector(hash);
+                if (faqItem) {
+                    setTimeout(() => {
+                        faqItem.classList.remove('closed');
+                        faqItem.querySelector('h3 span').textContent = '−';
+                    }, 100);
+                }
             });
         });
 

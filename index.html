@@ -609,7 +609,7 @@
                 <a href="#shop">Shop</a>
                 <a href="#about">About</a>
                 <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
+                <a href="#faq-contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -817,7 +817,7 @@
             });
         });
 
-        // Auto-open FAQ item if linked from footer
+        // Auto-open FAQ item if linked from footer or nav
         window.addEventListener('load', () => {
             const hash = window.location.hash;
             if (hash.startsWith('#faq-')) {
@@ -833,7 +833,7 @@
             }
         });
 
-        // Also handle when user clicks footer link
+        // Also handle when user clicks footer or nav link targeting a FAQ item
         document.querySelectorAll('a[href^="#faq-"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 const hash = link.getAttribute('href');

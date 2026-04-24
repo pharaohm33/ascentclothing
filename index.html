@@ -552,7 +552,7 @@
         <div class="hero-image">
             <video autoplay muted loop playsinline>
                 <source src="https://res.cloudinary.com/dfj6ster7/video/upload/v1777057613/Ascent_Back_Black_Shirt_Video_v9ogld.mp4" type="video/mp4">
-                <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/d457ccf6-294e-4bee-8454-0a0ed3341bf8/Ascent_White_Tee.jpeg" alt="Ascent Collection">
+                <img src="https://res.cloudinary.com/dfj6ster7/image/upload/v1777058863/Ascent_Black_Tee_vewpfb.jpg" alt="Ascent Collection">
             </video>
         </div>
     </section>
@@ -562,8 +562,7 @@
         <h2>Stay in the Loop</h2>
         <p>Get exclusive drops and updates delivered to your inbox</p>
         <form class="newsletter-form" onsubmit="handleBeehiivSubscribe(event)">
-            <input type="email" placeholder="your@email.com" required>
-            <button type="submit">Subscribe</button>
+            <button type="submit" style="flex: 1;">Subscribe</button>
         </form>
         <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">We'll never share your email or spam you</p>
     </section>
@@ -576,10 +575,10 @@
             <div class="product-card">
                 <div class="product-images">
                     <div class="product-image">
-                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/9a0e7517-6506-4147-802b-7e2c707b11d3/Ascent_Black_Tee.jpeg" alt="Ascent Black Tee Front">
+                        <img src="https://res.cloudinary.com/dfj6ster7/image/upload/v1777058863/Ascent_Black_Tee_vewpfb.jpg" alt="Ascent Black Tee Front">
                     </div>
                     <div class="product-image">
-                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/288503b8-7a26-4721-9654-0e2e08f5ef99/Ascent_Black_T__Back_.jpeg" alt="Ascent Black Tee Back">
+                        <img src="https://res.cloudinary.com/dfj6ster7/image/upload/v1777058863/Ascent_Black_T_Back_nxfssh.jpg" alt="Ascent Black Tee Back">
                     </div>
                 </div>
                 <div class="product-info">
@@ -599,10 +598,10 @@
             <div class="product-card">
                 <div class="product-images">
                     <div class="product-image">
-                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/3dc65be5-a55b-449c-bc56-496f4fdb5f3f/Ascent_White_Tee.jpeg" alt="Ascent White Tee Front">
+                        <img src="https://res.cloudinary.com/dfj6ster7/image/upload/v1777058863/Ascent_White_Tee_x4ajnq.jpg" alt="Ascent White Tee Front">
                     </div>
                     <div class="product-image">
-                        <img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/7441e458-3d54-4ffd-879a-3e11da46d607/Ascent_White_Tee__Back_.jpeg" alt="Ascent White Tee Back">
+                        <img src="https://res.cloudinary.com/dfj6ster7/image/upload/v1777058863/Ascent_White_Tee_Back_xugj2x.jpg" alt="Ascent White Tee Back">
                     </div>
                 </div>
                 <div class="product-info">
@@ -702,9 +701,8 @@
         // Beehiiv Subscribe
         function handleBeehiivSubscribe(e) {
             e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
             // Redirect to beehiiv subscribe page
-            window.location.href = 'https://ascentclothing.beehiiv.com/subscribe?email=' + encodeURIComponent(email);
+            window.location.href = 'https://ascentclothing.beehiiv.com/subscribe';
         }
     </script>
 </body>
